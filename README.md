@@ -55,7 +55,7 @@ A node with an `.x` and `.y` getter that is the goal for the path.
 
 > `cost_get_fn`   
 
-A function that returns the traversal cost for a node given to the function.
+A function you provide that returns the traversal cost for a node given to the function.
 This function passes a `from` node and a `to` node. if you don't have a cost, return 1.
 ```js
 //no cost?
@@ -66,7 +66,7 @@ _cost_get_fn = Fn.new {|from, to| tiles.get_cost(to.x, to.y) }
 
 > `neighbors_get_fn`   
 
-A function that returns a list of the neighbors for a given node, as a node with an `.x` and `.y` getter.
+A function you provide that returns a list of the neighbors for a given node, as a node with an `.x` and `.y` getter.
 This function can decide whether diagonals are included or not.
 ```js
 _neighbors_get_fn = Fn.new {|node|
@@ -82,7 +82,7 @@ _neighbors_get_fn = Fn.new {|node|
 
 > `heuristic_fn`   
 
-A function that returns a heuristic value for a given point (in relation to the goal/end of the path).
+A function you provide that returns a heuristic value for a given point (in relation to the goal/end of the path).
 ```js
 _heuristic_fn = Fn.new {|end, point|
   var manhattan = ((end.x - point.x).abs + (end.y - point.y).abs)
