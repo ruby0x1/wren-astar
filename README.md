@@ -17,6 +17,8 @@ For now, it's required that the nodes you pass to this respond to `.x` and `.y` 
 That's true for `start`, `end`, and values returned from `neighbors_get_fn`.
 Basically, any class is valid, provided it has these getters. An example class is shown below.
 
+Coordinates must be within 16 bit range (negative or positive), as in `−32,768  => 32,767` or `0 => 65,535`.
+
 ```js
 class Node {
   x { _x }
