@@ -4,9 +4,7 @@ A generic implementation of A* pathfinding in the Wren programming language - ht
 
 Shown below: different hueristics + neighbors + costs
 
-![](images/image0.png)
-![](images/image1.png)
-![](images/image2.png)
+![](images/image.jpg)
 
 ## Usage
 
