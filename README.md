@@ -2,14 +2,14 @@
 
 A generic implementation of A* pathfinding in the Wren programming language - https://wren.io
 
-Shown below: different hueristics + neighbors + costs
+Shown below: different heuristics + neighbors + costs
 
 ![](images/image.jpg)
 
 ## Usage
 
 The basic usage is `import "astar" for Astar`, and call `Astar.path2D`.
-For details about the pathfinding and the things like costs, heuristics and implementation
+For details about the pathfinding and things like costs, heuristics and implementation
 details, please see https://www.redblobgames.com/pathfinding/a-star/introduction.html
 
 ### Requirements
@@ -30,13 +30,13 @@ class Node {
 
 ### Astar.path2D
 
-> `start`
-A node with an `.x` and `.y` getter that is the beginning of the path
+> `start`   
+A node with an `.x` and `.y` getter that is the beginning of the path.
 
-> `end`
-A node with an `.x` and `.y` getter that is the goal for the path
+> `end`   
+A node with an `.x` and `.y` getter that is the goal for the path.
 
-> `cost_get_fn` 
+> `cost_get_fn`   
 A function that returns the traversal cost for a node given to the function.
 This function passes a `from` node and a `to` node. if you don't have a cost, return 1.
 ```js
@@ -46,7 +46,7 @@ _cost_get_fn = Fn.new {|from, to| 1 }
 _cost_get_fn = Fn.new {|from, to| tiles.get_cost(to.x, to.y) }
 ```
 
-> `neighbors_get_fn`
+> `neighbors_get_fn`   
 A function that returns a list of the neighbors for a given node, as a node with an `.x` and `.y` getter.
 This function can decide whether diagonals are included or not.
 ```js
@@ -61,8 +61,8 @@ _neighbors_get_fn = Fn.new {|node|
 }
 ```
 
-> `heuristic_fn`
-A function that returns a heuristic value for a given point.
+> `heuristic_fn`   
+A function that returns a heuristic value for a given point (in relation to the goal/end of the path).
 ```js
 _heuristic_fn = Fn.new {|end, point|
   var manhattan = ((end.x - point.x).abs + (end.y - point.y).abs)
