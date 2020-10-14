@@ -30,6 +30,9 @@ class Node {
 
 ### Astar.path2D
 
+Returns a path between `start` and `end` if one was found, or `null` otherwise.
+The path is a `List` of nodes received from `start`, `end` or `neighbors_get_fn` and are unmodified.
+
 > `start`   
 
 A node with an `.x` and `.y` getter that is the beginning of the path.
@@ -74,3 +77,8 @@ _heuristic_fn = Fn.new {|end, point|
   return manhattan * 1.001 //fudge factor, see the linked articles on pathfinding
 }
 ```
+
+### Astar.MAX
+
+A value that defaults to `250`, for the max number of iterations that will be considered valid. If the max is reached no path is returned.
+To update it, use `Astar.MAX = 400`.
