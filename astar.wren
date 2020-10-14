@@ -64,8 +64,11 @@ class AStar {
 
   } //path2D
 
+  //This is a 16 bit pairing function that just
+  //stores the two 16 bit values in one 32 bit one
+  //(This normally uses hex values, e.g
+  //65535 = 0xFFFF, 4294967295 = 0xFFFFFFFF)
   static pair_(x, y) {
-    // return IO.pair_16(x, y)
     var x_part = (x & 65535) << 16
     var y_part = y & 65535
     return (x_part | y_part) & 4294967295 //|
