@@ -33,6 +33,16 @@ class Node {
 Returns a path between `start` and `end` if one was found, or `null` otherwise.
 The path is a `List` of nodes received from `start`, `end` or `neighbors_get_fn` and are unmodified.
 
+**Note**: Check if `start`/`end` are walkable before calling this function.
+
+```js
+get_path(start, end) {
+  if(!is_walkable(start)) return null
+  if(!is_walkable(end)) return null
+  return AStar.path2D(start, end, _cost_get_fn, _neighbors_get_fn, _heuristic_fn)
+}
+```
+
 > `start`   
 
 A node with an `.x` and `.y` getter that is the beginning of the path.
